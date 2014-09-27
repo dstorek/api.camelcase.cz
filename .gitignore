@@ -1,0 +1,19 @@
+# Covers credentials fiels with sensitive data
+credentials.js
+
+# Covers logs
+npm-debug.log
+
+# Covers OS X
+.DS_Store
+
+# Covers Codekit
+config.codekit
+
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+/*.iml
+## Directory-based project format:
+.idea/
+
+#Covers node modules
+node_modules/
