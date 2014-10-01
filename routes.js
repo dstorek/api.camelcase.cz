@@ -1,6 +1,6 @@
 var registerDevice =    require('./passkit/registerDevice');
 var unregisterDevice =  require('./passkit/unregisterDevice');
-// var getLatestPass =     require('./passkit/getLatestPass');
+var getLatestPass =     require('./passkit/getLatestPass');
 var getSerialNumbers  = require('./passkit/getSerialNumbers');
 var logPasskitErrors =  require('./passkit/logPasskitErrors');
 

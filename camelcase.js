@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var credentials = require('./credentials.js');
 var app = express();
+var bodyParser = require('body-parser');
 var env = app.get('env');
 
 // ----------------- mongodb --------------------------------
@@ -27,8 +28,10 @@ switch(app.get('env')) {
 
 
 // ------------------- set up express application ----------------
-app.set('port', (process.env.PORT || 1337));
+app.set('port', (process.env.PORT || 8080));
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.disable('x-powered-by');
 
 // -------------- routes -----------------------

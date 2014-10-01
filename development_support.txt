@@ -1,0 +1,89 @@
+// support.txt
+ =============================================================
+use case:       Registering a Device to Receive Push Notifications for a Pass
+script file:    registerDevice.js
+http verb:      POST
+Header:         Authorization : ApplePass <Auth Token>
+Payload:        JSON dictionary, containing a single key and value: pushToken
+web serv. url:  http://localhost:8080/api/ws/
+generic path:   v1/devices/'deviceLibraryIdentifier'/registrations/'passTypeIdentifier'/'serialNumber'
+
+example full path:
+http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node/13960970610330324
+
+curl:
+curl --request POST --header "Content-Type: application/json" \
+--header "Authorization:ApplePass aface37da0a2daa43635368726e4930f599aac98" \
+-d '{"pushToken":"eeec287b1d589e7744bc7464a6065f9ef0df08c237b7514ee012e189e3d2adce;"}' \
+http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node/13960970610330324
+
+curl -X POST -H "Content-Type: application/json" \
+-H "Authorization:ApplePass aface37da0a2daa43635368726e4930f599aac98" \
+-d '{"pushToken":"eeec287b1d589e7744bc7464a6065f9ef0df08c237b7514ee012e189e3d2adce;"}' \
+http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node/13960970610330324
+
+
+================================================================
+use case:       Getting the Serial Numbers for Passes Associated with a Device
+script file:    getSerialNumbers.js
+http verb:      GET
+web serv. url:  http://localhost:8080/api/ws/
+generic path:   v1/devices/'deviceLibraryIdentifier'/registrations/'passTypeIdentifier'?passesUpdatedSince=tag
+tag (optional): A tag from a previous request.
+                If the passesUpdatedSince parameter is present, return only the passes that have been updated since
+                the time indicated by tag. Otherwise, return all passes.
+example full path:
+http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node?passesUpdatedSince=dnes
+
+curl (with outdated pass tag):
+curl http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node?passesUpdatedSince=11111111111
+
+curl (with up-to-date pass tag):
+curl http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node?passesUpdatedSince=99999999999999999999999
+
+==================================================================
+use case:       Getting the Latest Version of a Pass
+script file:    getLatestPass.js
+http verb:      GET
+Header:         Authorization : ApplePass <Auth Token>
+web serv. url:  http://localhost:8080/api/ws/
+generic path:   v1/passes/'passTypeIdentifier'/'serialNumber'
+
+example full path:
+http://localhost:8080/api/ws/v1/passes/pass.cz.camelcase.node/13960970610330324
+
+curl (with if-modified-since header):
+curl --request GET --header "Authorization:ApplePass 7fe57fe5bac439b2029f3d00940e407c8ac87f1f" \
+--header "if-modified-since:11111111111.00" \
+http://localhost:8080/api/ws/v1/passes/pass.cz.camelcase.node/13995833414139084
+
+curl (w/o if-modified-since header):
+curl --request GET --header "Authorization:ApplePass 7fe57fe5bac439b2029f3d00940e407c8ac87f1f" \
+http://localhost:8080/api/ws/v1/passes/pass.cz.camelcase.node/13995833414139084
+
+====================================================================
+use case:       Unregistering a Device
+script file:    unregisterDevice.js
+http verb:      DELETE
+web serv. url:  http://localhost:8080/api/ws/
+generic path:   v1/devices/'deviceLibraryIdentifier'/registrations/'passTypeIdentifier'/'serialNumber'
+
+example full path:
+http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node/13960970610330324
+
+curl:
+curl --request DELETE --header "Authorization:ApplePass aface37da0a2daa43635368726e4930f599aac98" \
+http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node/13960970610330324
+
+====================================================================
+use case:       Logging Errors
+script file:    logPasskitErrors.js
+http verb:      POST
+web serv. url:  http://localhost:8080/api/ws/
+generic path:   version/log
+
+example full path:
+http://localhost:8080/api/ws/v1/log
+
+curl:
+curl --request POST --header "content-type:application/json" http://localhost:8080/api/ws/v1 -d '{"logs": ["message1 ","message2"]}
