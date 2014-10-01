@@ -135,11 +135,11 @@ var getLatestPass = function(req, res){
                     zip.file("manifest.json", myBuffer7);
 
                     var contentBuffer = zip.generate({type:"nodebuffer"});
-
+                    /*
                     fs.writeFile("/data/pass.pkpass", contentBuffer, function(err) {
                         if (err) throw err;
                     });
-
+                    */
                     // var willSendThisPass = zip.toBuffer();
                     // dumpToBrowser(willSendThisPass);
 
