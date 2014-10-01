@@ -9,6 +9,12 @@ module.exports = function(app) {
     // APPLE PASSKIT WEB SERVICE API =======
     // =====================================
 
+    // default route
+    app.get('/', function(req, res){
+        res.send(200);
+    });
+
+
     // Registering a Device to Receive Push Notifications for a Pass
     app.post('/api/ws/:validVersion/devices/:deviceLibraryIdentifier/registrations/:passTypeIdentifier/:serialNumber',
         function (req,res){
