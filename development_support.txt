@@ -64,7 +64,7 @@ http://localhost:8080/api/ws/v1/passes/pass.cz.camelcase.node/13995833414139084
 # production - curl (with if-modified-since header):
 curl --request GET --header "Authorization:ApplePass 7fe57fe5bac439b2029f3d00940e407c8ac87f1f" \
 --header "if-modified-since:11111111111.00" \
-http://api.camelcase.cz:80/api/ws/v1/passes/pass.cz.camelcase.node
+http://www.camelcase.cz:80/api/ws/v1/passes/pass.cz.camelcase.node/13995833414139084
 
 
 ====================================================================

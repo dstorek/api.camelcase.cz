@@ -13,44 +13,44 @@ var passbookSchema = mongoose.Schema({
         }
     ]},
     pass : {
-        formatVersion: { type: Number, default: 1 },
-        passTypeIdentifier: { type: String, default: "pass.cz.camelcase.node" },
-        serialNumber: { type: String, default: "p69f2J" },
-        teamIdentifier: { type: String, default: "JAHRC5GQ4D" },
-        webServiceURL: { type: String, default: "http://www.camelcase.cz/api/ws/" },
-        authenticationToken: { type: String, default: "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc" },
+        "formatVersion" : { type: Number, default: 1 },
+        "passTypeIdentifier" : { type: String, default: "pass.cz.camelcase.loyalty" },
+        "serialNumber" : { type: String, default: "p69f2J" },
+        "teamIdentifier" :{ type: String, default: "JAHRC5GQ4D" },
+        "webServiceURL" : { type: String, default: "http://api.camelcase.cz/api/ws/" },
+        "authenticationToken" : { type: String, default: "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc" },
         locations: {type: Array, 'default': [
             {
-                longitude: -122.37488890,
-                latitude: 37.6189722
+                longitude: 14.3418737,
+                latitude: 50.0894173
             }
         ]},
-        barcode: {
-            message: { type: String, default: "12345678" },
-            format: { type: String, default: "PKBarcodeFormatQR" },
-            messageEncoding: { type: String, default: "iso-8859-1" }
+        "barcode" : {
+            "message" : { type: String, default: "12345678" },
+            "format" :  { type: String, default: "PKBarcodeFormatQR" },
+            "messageEncoding" :  { type: String, default: "iso-8859-1" }
         },
-        organizationName: { type: String, default: "Daniel Storek" },
-        description: { type: String, default: "Camelcase Loyalty Card" },
-        logoText: { type: String, default: "Camelcase.cz" },
-        foregroundColor: { type: String, default: "rgb(255, 255, 255)" },
-        backgroundColor: { type: String, default: "rgb(55, 117, 50)" },
-        storeCard: {
-            primaryFields: { type: Array, default: [
+        "organizationName" : { type: String, default: "Daniel Storek" },
+        "description" : { type: String, default: "Velbloudova vernostni karta" },
+        "logoText" : { type: String, default: "Velbloudova karta" },
+        "foregroundColor" : { type: String, default: "rgb(255, 255, 255)" },
+        "backgroundColor" : { type: String, default: "rgb(55, 117, 50)" },
+        "storeCard" : {
+            "primaryFields" : { type: Array, default: [
                 {
-                    key: "balance",
-                    label: "remaining balance",
-                    value: 0,
-                    currencyCode: "CZK"
+                    "key" : "balance",
+                    "label" : "zustatek",
+                    "value" : 1.00,
+                    "currencyCode" : "CZK"
                 }
-            ]},
-            auxiliaryFields: { type: Array, default: [
-                {
-                    key: "deal",
-                    label: "Deal of the day",
-                    value: "Lemons"
-                }
-            ]}
+            ],
+                "auxiliaryFields" : [
+                    {
+                        "key" : "deal!",
+                        "label" : "Akce dne",
+                        "value" : "Drink zdarma"
+                    }
+                ]}
         }
     }
 },{ collection : 'passbooks'});

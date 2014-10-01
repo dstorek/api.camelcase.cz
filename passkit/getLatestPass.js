@@ -60,7 +60,7 @@ var getLatestPass = function(req, res){
         });
 
         function findPNGfiles(document) {
-            Blueprint.find({"_id": "542876d16b3fef9bab7e4392"}, function (err, docs) {
+            Blueprint.find({"passTypeIdentifier": "pass.cz.camelcase.loyalty"}, function (err, docs) {
                 if (err) {
                     res.send(404); // TODO what happens when db with files is not ready?
                     throw err;
@@ -163,8 +163,8 @@ function signManifest(myBuffer7, callback) {
     var args = [
         "smime",
         "-sign", "-binary",
-        "-signer", "./certificates/node_pass_cert.pem",
-        "-inkey", "./certificates/node_pass_key.pem",
+        "-signer", "./certificates/pass_cert_loyalty.pem",
+        "-inkey", "./certificates/pass_key_loyalty.pem",
         "-certfile", "./certificates/WWDR.pem",
         "-passin", "pass:123456"
     ];
