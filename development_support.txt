@@ -1,4 +1,14 @@
 // support.txt
+
+==============================================================
+use case: Logging errors
+
+
+curl --request POST --header "Content-Type: application/json" \
+-d '{"logs": [ "log message 1", "log message 2", "log message 3"]}' \
+http://localhost:8080/api/ws/v1/log
+
+
  =============================================================
 use case:       Registering a Device to Receive Push Notifications for a Pass
 script file:    registerDevice.js
