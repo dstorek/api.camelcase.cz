@@ -21,6 +21,9 @@ generic path:   v1/devices/'deviceLibraryIdentifier'/registrations/'passTypeIden
 example full path:
 http://localhost:8080/api/ws/v1/devices/aaa56afd38cfabc90d4b3/registrations/pass.cz.camelcase.node/13960970610330324
 
+http://api.camelcase.cz/api/ws/v1/devices/06e3ef990f103400a4be5fad7b15a4e5/registrations/pass.cz.camelcase.loyalty/14121972016660204
+
+
 curl:
 curl --request POST --header "Content-Type: application/json" \
 --header "Authorization:ApplePass aface37da0a2daa43635368726e4930f599aac98" \
