@@ -48,14 +48,16 @@ app.disable('x-powered-by');
 require('./routes.js')(app);
 
 // -------------- launch --------------------------------
+/*
 https.createServer(sslOptions, app).listen(app.get('port'), function(){
     console.log('Express started in ' + app.get('env') +
     ' mode on port ' + app.get('port') + '.');
 });
+*/
 
-/*
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
-*/
+
 // -------------- end launch ----------------------------
