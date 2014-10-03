@@ -26,16 +26,6 @@ module.exports = function(app) {
             }
         });
 
-    app.post('/:validVersion/devices/:deviceLibraryIdentifier/registrations/:passTypeIdentifier/:serialNumber',
-        function (req,res){
-
-            if (req.params.validVersion != 'v1')
-                res.send(404);
-            else {
-                registerDevice.registerDevice(req, res);
-            }
-        });
-
     // Unregistering a Device
     app.delete('/api/ws/:validVersion/devices/:deviceLibraryIdentifier/registrations/:passTypeIdentifier/:serialNumber',
         function (req,res){
