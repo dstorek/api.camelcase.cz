@@ -41,7 +41,7 @@ var getSerialNumbers = function(req, res){
                 var i;
                 var jsonDictionary          = {};               // potential response payload
                 var serialNumbers           = [];               // Array of strings with serial numbers
-                var lastUpdatedTimestamp    = Date.now();       // current timestamp to send in response as the future tag
+                var lastUpdatedTimestamp    = toString(Date.now());  // current timestamp to send in response as the future tag
                 for (i = 0; i < doc.length; i++ ) {
                     if (tag && doc[i].lastUpdatedTimestamp > tag ) {
                         serialNumbers.push(doc[i].pass.serialNumber);
