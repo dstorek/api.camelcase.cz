@@ -3,6 +3,18 @@ var mongoose =  require('mongoose');
 // define the schema for our user model
 var passbookSchema = mongoose.Schema({
 
+    updates: {type: Array, 'default': [
+        {
+            "token":"tokenhere",
+            "barcode":"111111111111",
+            "update": {
+                "username":"jmeno",
+                "action":"pridal kerdit ve vysi x CZK",
+                "time":"4.10.2014 13:09",
+                "location":"Praha 6"
+            }
+        }
+    ]},
     email: {type: String, default : "empty@email.com"},
     lastUpdated: {type: String, default : "today"},         // used only for convenience as a human readable format
     lastUpdatedTimestamp: {type: String, default : 0 },
@@ -26,11 +38,12 @@ var passbookSchema = mongoose.Schema({
             }
         ]},
         "barcode" : {
+            "altText" : { type: String, default: "Kredit za kazdy drink!" },
             "message" : { type: String, default: "12345678" },
             "format" :  { type: String, default: "PKBarcodeFormatQR" },
             "messageEncoding" :  { type: String, default: "iso-8859-1" }
         },
-        "organizationName" : { type: String, default: "Daniel Storek" },
+        "organizationName" : { type: String, default: "www.camelcase.cz" },
         "description" : { type: String, default: "Velbloudova vernostni karta" },
         "logoText" : { type: String, default: "Velbloudova karta" },
         "foregroundColor" : { type: String, default: "rgb(255, 255, 255)" },
@@ -41,7 +54,8 @@ var passbookSchema = mongoose.Schema({
                     "key" : "balance",
                     "label" : "zustatek",
                     "value" : 1.00,
-                    "currencyCode" : "CZK"
+                    "currencyCode" : "CZK",
+                    "changeMessage" : "Zustatek zmenen na %@"
                 }
             ],
                 "auxiliaryFields" : [
