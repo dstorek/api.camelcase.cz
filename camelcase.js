@@ -38,7 +38,7 @@ switch(app.get('env')) {
 
 
 // ------------------- set up express application ----------------
-app.set('port', (process.env.PORT || 8088));
+app.set('port', (process.env.PORT || 8080));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
