@@ -9,9 +9,21 @@ var env = app.get('env');
 // ----------------- https --------------------------------
 var https = require('https');
 var fs = require('fs');
+/*
 var sslOptions = {
   key: fs.readFileSync(__dirname + '/certificates/ssl/camel_ssl_key.pem'),
   cert: fs.readFileSync(__dirname + '/certificates/ssl/camel_ssl_cert.crt')
+};
+*/
+
+var sslOptions = {
+    key: fs.readFileSync(__dirname + '/certificates/ssl/camel_ssl_key.key'),
+    cert: fs.readFileSync(__dirname + '/certificates/ssl/camel_ssl_cert.crt'),
+    ca: [
+        fs.readFileSync(__dirname + '/certificates/ssl/ca.pem'),
+        fs.readFileSync(__dirname + '/certificates/ssl/sub.class1.server.ca.pem')
+    ],
+    passphrase: credentials.ssl_passphrase
 };
 // ----------------- end https --------------------------------
 
@@ -48,16 +60,14 @@ app.disable('x-powered-by');
 require('./routes.js')(app);
 
 // -------------- launch --------------------------------
-/*
 https.createServer(sslOptions, app).listen(app.get('port'), function(){
     console.log('Express started in ' + app.get('env') +
     ' mode on port ' + app.get('port') + '.');
 });
-*/
 
-
+/*
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
-
+*/
 // -------------- end launch ----------------------------
