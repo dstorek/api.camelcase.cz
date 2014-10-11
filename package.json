@@ -1,8 +1,8 @@
 {
   "name": "api.camelcase.cz",
-  "version": "0.0.1",
+  "version": "0.2",
   "description": "api for camelcase.cz service",
-  "main": "index.js",
+  "main": "camelcase.js",
   "dependencies": {
     "body-parser": "^1.9.0",
     "express": "~4.9.*",
