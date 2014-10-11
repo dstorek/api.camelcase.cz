@@ -50,7 +50,7 @@ switch(app.get('env')) {
 
 
 // ------------------- set up express application ----------------
-app.set('port', (process.env.PORT || 8080));
+app.set('port', (process.env.PORT || 8009));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -60,14 +60,14 @@ app.disable('x-powered-by');
 require('./routes.js')(app);
 
 // -------------- launch --------------------------------
-https.createServer(sslOptions, app).listen(app.get('port'), function(){
+/*https.createServer(sslOptions, app).listen(app.get('port'), function(){
     console.log('Express started in ' + app.get('env') +
     ' mode on port ' + app.get('port') + '.');
 });
+*/
 
-/*
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
-*/
+
 // -------------- end launch ----------------------------
