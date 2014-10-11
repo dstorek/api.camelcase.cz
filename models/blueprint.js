@@ -22,7 +22,7 @@ var blueprintSchema = mongoose.Schema({
         "passTypeIdentifier" : { type: String, default: "pass.cz.camelcase.loyalty" },
         "serialNumber" : { type: String, default: "p69f2J" },
         "teamIdentifier" :{ type: String, default: "JAHRC5GQ4D" },
-        "webServiceURL" : { type: String, default: "https://camelcase.cz/api/ws/" },
+        "webServiceURL" : { type: String, default: "https://api.camelcase.cz/api/ws/" },
         "authenticationToken" : { type: String, default: "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc" },
         locations: {type: Array, 'default': [
             {
