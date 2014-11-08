@@ -16,48 +16,7 @@ var blueprintSchema = mongoose.Schema({
     "icon2x": Buffer,
     "logo": Buffer,
     "strip": Buffer,
-    "strip2x": Buffer,
-    "pass" : {
-        "formatVersion" : { type: Number, default: 1 },
-        "passTypeIdentifier" : { type: String, default: "pass.cz.camelcase.loyalty" },
-        "serialNumber" : { type: String, default: "p69f2J" },
-        "teamIdentifier" :{ type: String, default: "JAHRC5GQ4D" },
-        "webServiceURL" : { type: String, default: "https://api.camelcase.cz/api/ws/" },
-        "authenticationToken" : { type: String, default: "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc" },
-        locations: {type: Array, 'default': [
-            {
-                longitude: 14.3418737,
-                latitude: 50.0894173
-            }
-        ]},
-        "barcode" : {
-            "message" : { type: String, default: "12345678" },
-            "format" :  { type: String, default: "PKBarcodeFormatQR" },
-            "messageEncoding" :  { type: String, default: "iso-8859-1" }
-        },
-        "organizationName" : { type: String, default: "Daniel Storek" },
-        "description" : { type: String, default: "Velbloudova vernostni karta" },
-        "logoText" : { type: String, default: "Velbloudova karta" },
-        "foregroundColor" : { type: String, default: "rgb(255, 255, 255)" },
-        "backgroundColor" : { type: String, default: "rgb(55, 117, 50)" },
-        "storeCard" : {
-            "primaryFields" : { type: Array, default: [
-                {
-                    "key" : "balance",
-                    "label" : "zustatek",
-                    "value" : 1.00,
-                    "currencyCode" : "CZK"
-                }
-            ],
-                "auxiliaryFields" : [
-                    {
-                        "key" : "deal!",
-                        "label" : "Akce dne",
-                        "value" : "Drink zdarma"
-                    }
-                ]}
-        }
-    }
+    "strip2x": Buffer
 },{ collection : 'blueprints'});
 
 // create the model for passes and expose it to our app

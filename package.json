@@ -1,6 +1,6 @@
 {
   "name": "api.camelcase.cz",
-  "version": "0.3",
+  "version": "0.3.0",
   "description": "api for camelcase.cz service",
   "main": "camelcase.js",
   "dependencies": {
